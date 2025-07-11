@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  my-front-web:
+    container_name: my-front-web
+    restart: unless-stopped
+    build: 
+      context: .
+    env_file: .env
+    ports: 
+      - "3000:3000"
+    networks:
+      - red-social
+
+networks:
+  red-social:
+    external: true

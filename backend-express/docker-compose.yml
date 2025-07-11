@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  
+  my-web:
+    container_name: my-web
+    restart: unless-stopped
+    build:
+      context: .
+    ports:
+      - "4000:4000"
+    env_file: .env
+    networks:
+      - red-social
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: postgres-redsocial
+    environment:
+      POSTGRES_DB: midb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    networks:
+      - red-social
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin-redsocial
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "80:80"
+    networks:
+      - red-social
+
+networks:
+  red-social:
+    external: true

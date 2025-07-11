@@ -1,0 +1,127 @@
+import Like from "../models/Like";
+import Post from "../models/Post";
+import User from "../models/User";
+
+const likes = [
+  { "user_id": 8, "post_id": 32 },
+  { "user_id": 17, "post_id": 30 },
+  { "user_id": 11, "post_id": 12 },
+  { "user_id": 4, "post_id": 6 },
+  { "user_id": 7, "post_id": 33 },
+  { "user_id": 15, "post_id": 17 },
+  { "user_id": 20, "post_id": 12 },
+  { "user_id": 12, "post_id": 31 },
+  { "user_id": 2, "post_id": 22 },
+  { "user_id": 13, "post_id": 8 },
+  { "user_id": 2, "post_id": 2 },
+  { "user_id": 3, "post_id": 30 },
+  { "user_id": 14, "post_id": 14 },
+  { "user_id": 18, "post_id": 7 },
+  { "user_id": 3, "post_id": 25 },
+  { "user_id": 16, "post_id": 18 },
+  { "user_id": 1, "post_id": 27 },
+  { "user_id": 7, "post_id": 20 },
+  { "user_id": 5, "post_id": 25 },
+  { "user_id": 11, "post_id": 16 },
+  { "user_id": 12, "post_id": 4 },
+  { "user_id": 14, "post_id": 34 },
+  { "user_id": 9, "post_id": 24 },
+  { "user_id": 8, "post_id": 35 },
+  { "user_id": 5, "post_id": 39 },
+  { "user_id": 4, "post_id": 5 },
+  { "user_id": 17, "post_id": 18 },
+  { "user_id": 2, "post_id": 26 },
+  { "user_id": 18, "post_id": 3 },
+  { "user_id": 11, "post_id": 26 },
+  { "user_id": 1, "post_id": 4 },
+  { "user_id": 13, "post_id": 5 },
+  { "user_id": 6, "post_id": 6 },
+  { "user_id": 10, "post_id": 4 },
+  { "user_id": 9, "post_id": 12 },
+  { "user_id": 13, "post_id": 7 },
+  { "user_id": 17, "post_id": 21 },
+  { "user_id": 18, "post_id": 8 },
+  { "user_id": 5, "post_id": 16 },
+  { "user_id": 8, "post_id": 7 },
+  { "user_id": 16, "post_id": 15 },
+  { "user_id": 14, "post_id": 1 },
+  { "user_id": 19, "post_id": 17 },
+  { "user_id": 10, "post_id": 17 },
+  { "user_id": 20, "post_id": 31 },
+  { "user_id": 7, "post_id": 1 },
+  { "user_id": 16, "post_id": 25 },
+  { "user_id": 6, "post_id": 10 },
+  { "user_id": 4, "post_id": 21 },
+  { "user_id": 2, "post_id": 1 },
+  { "user_id": 19, "post_id": 2 },
+  { "user_id": 13, "post_id": 6 },
+  { "user_id": 6, "post_id": 14 },
+  { "user_id": 9, "post_id": 13 },
+  { "user_id": 15, "post_id": 4 },
+  { "user_id": 1, "post_id": 2 },
+  { "user_id": 12, "post_id": 15 },
+  { "user_id": 11, "post_id": 21 },
+  { "user_id": 14, "post_id": 11 },
+  { "user_id": 5, "post_id": 18 },
+  { "user_id": 18, "post_id": 4 },
+  { "user_id": 15, "post_id": 11 },
+  { "user_id": 9, "post_id": 28 },
+  { "user_id": 6, "post_id": 28 },
+  { "user_id": 4, "post_id": 24 },
+  { "user_id": 2, "post_id": 3 },
+  { "user_id": 17, "post_id": 33 },
+  { "user_id": 3, "post_id": 21 },
+  { "user_id": 13, "post_id": 31 },
+  { "user_id": 6, "post_id": 21 },
+  { "user_id": 11, "post_id": 8 },
+  { "user_id": 16, "post_id": 35 },
+  { "user_id": 10, "post_id": 35 },
+  { "user_id": 7, "post_id": 2 },
+  { "user_id": 8, "post_id": 37 },
+  { "user_id": 5, "post_id": 1 },
+  { "user_id": 3, "post_id": 8 },
+  { "user_id": 1, "post_id": 15 },
+  { "user_id": 20, "post_id": 3 },
+  { "user_id": 12, "post_id": 18 },
+  { "user_id": 10, "post_id": 30 },
+  { "user_id": 19, "post_id": 5 },
+  { "user_id": 14, "post_id": 38 },
+  { "user_id": 3, "post_id": 2 },
+  { "user_id": 18, "post_id": 9 },
+  { "user_id": 1, "post_id": 14 },
+  { "user_id": 13, "post_id": 28 },
+  { "user_id": 9, "post_id": 26 },
+  { "user_id": 15, "post_id": 9 },
+  { "user_id": 17, "post_id": 27 },
+  { "user_id": 20, "post_id": 17 },
+  { "user_id": 2, "post_id": 9 },
+  { "user_id": 7, "post_id": 18 },
+  { "user_id": 6, "post_id": 4 },
+  { "user_id": 12, "post_id": 39 },
+  { "user_id": 8, "post_id": 15 },
+  { "user_id": 1, "post_id": 5 },
+  { "user_id": 4, "post_id": 15 },
+  { "user_id": 10, "post_id": 23 },
+  { "user_id": 11, "post_id": 27 },
+  { "user_id": 19, "post_id": 35 },
+  { "user_id": 3, "post_id": 3 },
+  { "user_id": 9, "post_id": 5 }
+]
+
+export async function seedLikes() {
+  await Like.destroy({ where: {} });
+
+  for (const like of likes) {
+    const user = await User.findOne({ where: { id: like.user_id } });
+    const post = await Post.findOne({ where: { id: like.post_id } });
+    if (user && post) {
+      await Like.create({
+        user_id: user.id,
+        post_id: post.id
+      });
+    }
+  }
+
+  console.log('✔ Likes insertados');
+
+}
